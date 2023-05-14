@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        color: rgb(165, 107, 150);
+        text-align: center;
+        background-color: rgb(225, 223, 225);
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      input[type=text] {
+        display: block;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        width: 100%;
+        font-size: 1rem;
+        border: 1px solid rgb(165, 107, 150);
+        border-radius: 4px;
+        transition: border-color 0.2s ease-in-out;
+      }
+
+      input[type=text]:focus {
+        outline: none;
+        border-color: rgb(185, 120, 162);
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 2rem;
+        background-color: rgb(185, 120, 162);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      .btn:hover {
+        background-color: rgb(165, 107, 150);
+      }
+    </style>
+    <title>Update User</title>
+  </head>
+  <body>
+    <h1>Update User</h1>
+    <form action="{{ url_for('update_user', user_id=user_id) }}" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="{{ user.name }}" required>
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" value="{{ user.email }}" required>
+      <label for="age">Age:</label>
+      <input type="text" id="age" name="age" value="{{ user.age }}" required>
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" name="gender" value="{{ user.gender }}" required>
+      <input type="hidden" name="user_id" value="{{ user.id }}">
+      <button type="submit" class="btn">Update</button>
+    </form>
+  </body>
+</html>
